@@ -1,0 +1,214 @@
+@import url('global.css');
+@import url('reset.css');
+@import url('header.css');
+@import url('footer.css');
+
+/* 종모양 스타일링 추가*/
+header .navbar ul li .material-icons{
+  font-size: 2rem;
+}
+/* 아바타 이미지 스타일링 추가 */
+header .navbar ul li .account img{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+/* 툴박스 */
+header .toolbox{
+  display: flex;
+  flex-wrap: wrap;
+}
+header .toolbox > div{
+  border-right: 1px solid #c7c7c7;
+  padding: 0 .5rem;
+}
+header .toolbox > div a{
+  margin: 0 .2rem;
+  transition: .3s;
+}
+header .toolbox > div a:hover{
+  color: var(--primary-color);
+}
+header .toolbox > div > a label{
+  cursor: pointer;
+}
+/*  블로그 편집기 */
+.post-container{
+  width: 50vw;
+  margin: 0 auto;
+  min-height: calc(100vh - 3 * var(--header-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* background-color: #333; */
+}
+/* 카테고리 */
+.post-container .post-category{
+  height: 2rem;
+  margin-top: 3rem;
+} 
+.post-container .post-category select{
+  width: 10rem;
+  height: 100%;
+  padding-left: .5rem;
+}
+/* 제목 */
+.post-container .post-title{
+  height: 4rem;
+  margin: 1rem 0;
+  padding: .7rem 0;
+  border-bottom: 1px solid #eee;
+}
+.post-container .post-title input{
+  outline: none;
+  border: none;
+  height: 100%;
+  font-size: 2rem;
+}
+/* 컨텐츠 영역 */
+.post-container .post-contents{
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.post-container img,
+.post-contents .video-file{
+  max-width: 100%; /*이미지/비디오 파일의 너비가 편집기를 벗어나지 않도록 설정*/
+}
+.post-contents .audio-file{
+  outline: none;
+}
+.post-contents .normal-file{
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 .2rem rgba(0, 0, 0, .3);
+}
+.post-contents .normal-file .file-icon{
+  padding-right: .5rem;
+}
+.post-contents .normal-file .file-icon span{
+  font-size: 2.5rem;
+}
+.post-contents .normal-file .file-info h3{
+  margin: .3rem 0;
+}
+.post-contents .normal-file .file-info p{
+  margin: .3rem 0;
+  color: #aaa;
+}
+/* 태그 */
+.post-container .post-tags ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.post-container .post-tags ul li:nth-child(1){ 
+  color: #aaa;
+}
+.post-container .post-tags ul li{
+  margin-right: 1rem;
+}
+.post-container .post-tags ul input{ 
+  width: 10rem;
+  border: none;
+  outline: none; 
+}
+.post-container .post-tags ul li a{
+  color: #aaa;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: .2rem;
+  transition: .3s;
+}
+.post-container .post-tags ul li a:hover{
+  color: var(--primary-color);
+}
+.hidden{
+  display: none;
+}
+/* 다크모드 */
+.post-container .post-title input.dark,
+.post-container .post-contents textarea.dark,
+.post-container .post-tags input.dark{
+  color: #fff;
+  background-color: #333;
+}
+/* 드롭다운 */
+.select-menu{
+  max-width: 2rem;
+  display: inline-flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative; /* 컨테이너 기준으로 드롭다운 메뉴가 배치 */
+}
+.select-menu-dropdown{
+  background-color: #fff;
+  position: absolute;
+  top: 45px; /* 아이콘 높이만큼 아래쪽에 드롭다운 메뉴 배치 */
+  border: 1px solid #ddd;
+  padding: 1rem;
+  display: none;
+  user-select: none; /*현재 편집기에 선택된 영익이 바뀌지 않도록 */
+}
+.select-menu-dropdown::before{
+  content: '';
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #fff;
+  position: absolute;
+  top:-0.7rem; 
+  left: 50%;
+  transform: translateX(-50%) rotateZ(45deg);
+  border: 1px solid #ddd;
+  border-right: none;
+  border-bottom: none;
+}
+.select-menu-dropdown.show{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 색상 드롭다운 */
+.color-box{
+  width: 10rem;
+}
+.color-box span{
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  flex: 0 0 auto; /* 요소 크기가 늘어나지도 줄어들지도 않고 본래크기를 유지 */
+  margin: .2rem;
+  cursor: pointer;
+}
+.color-box.show{
+  flex-wrap: wrap;
+}
+/* 폰트 드롭다운 */
+.font-box{
+  width: 12rem;
+}
+.font-box span{
+  width: 100%;
+  padding: .5rem;
+  cursor: pointer;
+}
+.font-box span:hover{
+  background-color: #eee;
+}
+.font-box.show{
+  flex-flow: column;
+}
+/*  이모티콘 드롭다운 */
+.imoticon-box{
+  width: 12rem;
+}
+.imoticon-box span{
+  font-size: 1.5rem;
+  margin: .2rem;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.imoticon-box.show{
+  flex-wrap: wrap;
+}
